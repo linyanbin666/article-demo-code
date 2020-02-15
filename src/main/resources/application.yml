@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    primary:
+      name: primaryDataSource
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:test1;MODE=MySQL
+      username: root
+      password: root
+      jpa:
+        show-sql: true
+        generate-ddl: true
+        properties:
+          hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate:
+          ddl-auto: update
+    secondary:
+      name: secondaryDataSource
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:test2;MODE=MySQL
+      username: root
+      password: root
+      jpa:
+        show-sql: true
+        generate-ddl: true
+        properties:
+          hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate:
+          ddl-auto: update
+app:
+  customer:
+    jpa:
+      properties:
+        hibernate.dialect: org.hibernate.dialect.H2Dialect
+    development:
+      datasource:
+        name: dataSource
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:customer1;MODE=MySQL
+        username: root
+        password: root
+    testing:
+      datasource:
+        name: dataSource
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:customer2;MODE=MySQL
+        username: root
+        password: root
+    production:
+      datasource:
+        name: dataSource
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:customer3;MODE=MySQL
+        username: root
+        password: root
